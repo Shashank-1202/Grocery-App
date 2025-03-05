@@ -5,14 +5,20 @@ Follow the steps to create and dockerfile
 
 ### ✅ Prerequisites  
 
-Clone the repository
+Your backend server and frontend server need to be in the same server or instance, or you can also use different servers too, but you have to configure the same base Docker image, like if you have used Ubuntu for the backend EC2, then for the frontend also use the same Ubuntu.
+
+I have used Docker Ubuntu image (to download docker image you can refer to the link https://docs.docker.com/engine/install/ubuntu/)
+
+Clone the repository from github 
+
+
 make changes into REACT_APP_API_URL
 
 When building a React app using a Dockerfile, updating REACT_APP_API_URL (or any other environment variable prefixed with REACT_APP_) is necessary because React applications are static single-page applications (SPA). This means that environment variables are baked into the build at compile time and cannot be changed later.
 
 **1st method (preffered)**
 
-in the dockerfile RUN sed -i's|REACT_APP_API_URL=http://35.192.28.119:5000|REACT_APP_API_URL=http://**43.204.215.101**:5000|' .env
+in the dockerfile RUN sed -i 's|REACT_APP_API_URL=http://35.192.28.119:5000|REACT_APP_API_URL=http://**43.204.215.101**:5000|' .env
 copy your backend ip into it, in this bold highlighted command and save the file.
 
 create the directory to run the build directory files and packages (mkdir -p /var/www/grocery-app manually)
