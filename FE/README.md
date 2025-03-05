@@ -25,7 +25,7 @@ create the directory to run the build directory files and packages (mkdir -p /va
 
 Create a file manually for nginx configuration in the /FE directory - nginx.conf and paste 
 
-
+```
 server {
 
     listen 80;
