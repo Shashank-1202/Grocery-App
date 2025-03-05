@@ -22,7 +22,6 @@ Create a file manually for nginx configuration in the /FE directory - nginx.conf
 **server {
     listen 80;
     server_name your_domain_or_ip;   #- Replace  `your_domain_or_ip`  with your server public IP of frontend
-
     root /var/www/grocery-app;
     index index.html;
     
