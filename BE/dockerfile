@@ -1,0 +1,35 @@
+FROM ubuntu:latest
+
+# Update system and install dependencies
+RUN apt update -y && apt-get clean && apt-get install -y gnupg curl && \
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y nodejs
+
+# Add MongoDB repository and install MongoDB & mongosh
+RUN curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+    gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor && \
+    echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | \
+    tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+RUN apt-get update && apt-get install -y mongodb-org mongodb-mongosh
+
+# Create required directories
+RUN mkdir -p /data/db /var/log && \
+    touch /var/log/mongodb.log && \
+    chown -R mongodb:mongodb /data/db
+
+# Set the working directory
+WORKDIR /home/ubuntu/GroceryApp/BE
+
+# Install global dependencies
+RUN npm install -g pm2
+
+# Copy application files
+COPY . .
+
+# Install application dependencies
+RUN npm install
+
+# Expose application port
+EXPOSE 5000
+
+# Start MongoDB and the Node.js backend
+CMD ["/bin/bash", "-c", "mongod --logpath /var/log/mongodb.log --bind_ip_all & pm2 start server.js --name grocery-backend && pm2 logs"]
