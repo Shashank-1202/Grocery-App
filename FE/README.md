@@ -12,7 +12,7 @@ When building a React app using a Dockerfile, updating REACT_APP_API_URL (or any
 
 **1st method (preffered)**
 
-in the dockerfile RUN sed -i 's|REACT_APP_API_URL=http://35.192.28.119:5000|REACT_APP_API_URL=http://**43.204.215.101**:5000|' .env
+in the dockerfile RUN sed -i's|REACT_APP_API_URL=http://35.192.28.119:5000|REACT_APP_API_URL=http://**43.204.215.101**:5000|' .env
 copy your backend ip into it, in this bold highlighted command and save the file.
 
 create the directory to run the build directory files and packages (mkdir -p /var/www/grocery-app manually)
