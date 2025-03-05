@@ -19,7 +19,8 @@ create the directory to run the build directory files and packages (mkdir -p /va
 
 Create a file manually for nginx configuration in the /FE directory - nginx.conf and paste 
 
-**server {
+**
+server {
     listen 80;
     server_name your_domain_or_ip;   #- Replace  `your_domain_or_ip`  with your server public IP of frontend
     root /var/www/grocery-app;
@@ -29,7 +30,7 @@ Create a file manually for nginx configuration in the /FE directory - nginx.conf
         try_files $uri /index.html;
     }
 }
-
+**
 OR 
 
 **2nd method (optional)** (go inside the directory /FE
