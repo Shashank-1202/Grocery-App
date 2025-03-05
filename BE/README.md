@@ -1,4 +1,4 @@
-#✈Grocery-APP Dockerfile✈
+##**✈Grocery-APP Dockerfile✈**
 
 ### ✅ Prerequisites
 Your backend server and frontend server need to be in the same server or instance, or you can also use different servers too, but you have to configure the same base Docker image, like if you have used Ubuntu for the backend EC2, then for the frontend also use the same Ubuntu.
