@@ -20,13 +20,19 @@ create the directory to run the build directory files and packages (mkdir -p /va
 Create a file manually for nginx configuration in the /FE directory - nginx.conf and paste 
 
 
+
 server {
+
     listen 80;
+    
     server_name your_domain_or_ip;   #- Replace  `your_domain_or_ip`  with your server public IP of frontend
+    
     root /var/www/grocery-app;
+    
     index index.html;
     
     location / {
+    
         try_files $uri /index.html;
     }
 }
@@ -40,18 +46,3 @@ REACT_APP_API_URL=http://webserverpublicIP:5000 ) and remove the REACT_APP_URL c
 
 
 **NOTE** - After making changes into nginx conf file and creating directory in /var. Then only build the docker file.
-
-server {
-
-    listen 80;
-    
-    server_name your_domain_or_ip;   #- Replace  `your_domain_or_ip`  with your server public IP or domain name
-
-    root /var/www/grocery-app;
-    
-    index index.html;
-    
-    location / {
-        try_files $uri /index.html;
-    }
-}
