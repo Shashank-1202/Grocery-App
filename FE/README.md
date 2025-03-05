@@ -1,10 +1,10 @@
 # GroceryAppFE DOCKERFILE🚀  
 
 ## 📌 Getting Started  
-Follow these steps to set up and run the project locally.  
+Follow the steps to create and dockerfile  
 
 ### ✅ Prerequisites  
-Ensure you have the following installed on your system:  
+
 Clone the repository
 make changes into REACT_APP_API_URL
 
@@ -18,6 +18,7 @@ copy your backend ip into it, in this bold highlighted command and save the file
 create the directory to run the build directory files and packages (mkdir -p /var/www/grocery-app manually)
 
 Create a file manually for nginx configuration in the /FE directory - nginx.conf and paste 
+
 
 
 
